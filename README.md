@@ -1,2 +1,16 @@
-# PawAid-AI
-🐾 PawAid Copilot: AI first-aid assistant for pet emergencies. Uses RAG to retrieve veterinary guidance from knowledge base. Demonstrates prompt engineering, vector search, and responsible AI for safety-critical domains.
+# 🐾 PawAid ai
+
+AI-powered first-aid assistant for pet emergencies (cats & dogs)
+
+## What it does
+Provides evidence-based first-aid guidance by retrieving relevant information 
+from veterinary resources using RAG (Retrieval-Augmented Generation).
+
+## Tech Stack
+- RAG Pipeline: LangChain
+- Vector DB: ChromaDB
+- LLM: GPT-4
+- Frontend: Streamlit
+
+## Project Status
+🚧 In Development - Building document ingestion pipeline
