@@ -1,4 +1,4 @@
-# 🐾 PawAid ai
+# 🐾 PawAid AI
 
 AI-powered first-aid assistant for pet emergencies (cats & dogs)
 
