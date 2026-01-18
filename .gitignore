@@ -5,6 +5,7 @@
 # Data
 data/raw/*
 !data/raw/.gitkeep
+data/chroma/
 *.pdf
 *.vec
 
