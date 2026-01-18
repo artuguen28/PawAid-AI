@@ -51,7 +51,7 @@ class PDFLoader:
         Load a single PDF file.
 
         Args:
-            file_path: Path to the PDF file.
+            file_path: Path to the PDF file (absolute or relative to data root).
 
         Returns:
             Document object with extracted text and metadata.
@@ -60,7 +60,7 @@ class PDFLoader:
             FileNotFoundError: If the file doesn't exist.
             ValueError: If the file is not a PDF.
         """
-        file_path = Path(file_path)
+        file_path = Path(file_path).resolve()
 
         if not file_path.exists():
             raise FileNotFoundError(f"File not found: {file_path}")
@@ -85,10 +85,17 @@ class PDFLoader:
             for p in pages_text
         )
 
-        # Extract metadata
+        # Compute path relative to data root (for portability)
+        try:
+            relative_source = str(file_path.relative_to(self.data_dir))
+        except ValueError:
+            # Fallback if file is outside data root
+            relative_source = file_path.name
+
         pdf_metadata = reader.metadata or {}
+
         metadata = {
-            "source": str(file_path),
+            "source": relative_source,
             "filename": file_path.name,
             "page_count": len(reader.pages),
             "title": pdf_metadata.get("/Title", file_path.stem),
