@@ -38,6 +38,10 @@ import argparse
 import sys
 from pathlib import Path
 
+# ChromaDB requires sqlite3 >= 3.35.0; use pysqlite3 as a drop-in replacement
+__import__("pysqlite3")
+sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
+
 # Add project root to path
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
@@ -240,8 +244,8 @@ def main():
     parser.add_argument(
         "--persist-dir",
         type=str,
-        default="data/chroma",
-        help="ChromaDB persist directory (default: data/chroma)"
+        default="vector_store",
+        help="ChromaDB persist directory (default: vector_store)"
     )
 
     parser.add_argument(

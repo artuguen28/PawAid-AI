@@ -15,9 +15,9 @@ def sanitize_metadata_for_chroma(metadata: Dict[str, Any]) -> Dict[str, Any]:
     """
     Sanitize metadata values for ChromaDB compatibility.
 
-    ChromaDB only supports str, int, float, bool, and None values.
-    Lists are converted to comma-separated strings.
-    Other complex types are converted to their string representation.
+    ChromaDB only supports str, int, float, and bool metadata values.
+    None values are dropped, lists are converted to comma-separated strings,
+    and other complex types are converted to their string representation.
 
     Args:
         metadata: Original metadata dictionary.
@@ -29,7 +29,7 @@ def sanitize_metadata_for_chroma(metadata: Dict[str, Any]) -> Dict[str, Any]:
 
     for key, value in metadata.items():
         if value is None:
-            sanitized[key] = None
+            continue
         elif isinstance(value, (str, int, float, bool)):
             sanitized[key] = value
         elif isinstance(value, list):

@@ -5,6 +5,8 @@ Handles loading PDF documents from the data directory using PyPDF2.
 Supports single file and batch loading with metadata extraction.
 """
 
+from __future__ import annotations
+
 import os
 from pathlib import Path
 from typing import List, Optional

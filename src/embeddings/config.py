@@ -34,7 +34,7 @@ class EmbeddingConfig:
 class ChromaConfig:
     """Configuration for ChromaDB vector store."""
 
-    persist_directory: str = "data/chroma"
+    persist_directory: str = "vector_store"
     collection_name: str = "pawaid_veterinary"
     distance_metric: str = "cosine"
 
@@ -74,7 +74,7 @@ class IndexConfig:
         return cls(
             embedding=EmbeddingConfig(batch_size=10, max_retries=1),
             chroma=ChromaConfig(
-                persist_directory="data/chroma_test",
+                persist_directory="vector_store_test",
                 collection_name="pawaid_test"
             ),
             verbose=True

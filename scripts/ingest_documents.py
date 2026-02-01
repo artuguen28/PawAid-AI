@@ -22,6 +22,8 @@ Examples:
     python scripts/ingest_documents.py --dry-run
 """
 
+from __future__ import annotations
+
 import argparse
 import json
 import sys

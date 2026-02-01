@@ -4,6 +4,8 @@ Index Builder Module
 High-level orchestrator for building and managing the vector index.
 """
 
+from __future__ import annotations
+
 import json
 import logging
 from pathlib import Path

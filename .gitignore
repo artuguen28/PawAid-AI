@@ -5,7 +5,8 @@
 # Data
 data/raw/*
 !data/raw/.gitkeep
-data/chroma/
+vector_store/
+vector_store_test/
 *.pdf
 *.vec
 
